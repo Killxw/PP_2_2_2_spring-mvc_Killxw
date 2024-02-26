@@ -1,12 +1,12 @@
 package web.db;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import web.models.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Repository
 public class CarsList {
     private final List<Car> carsList;
 
