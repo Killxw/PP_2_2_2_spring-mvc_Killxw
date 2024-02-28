@@ -18,13 +18,15 @@ public class CarServicelmp implements CarService {
         this.carsList = carsList;
     }
 
+
     @Override
-    public List<Car> getCarList(List<Car> carList, Integer val) {
-        return carList.stream()
-                .limit(val != null && val >= 1 && val < 5 ? val : carList.size())
-                .collect(Collectors.toList());
-    }
-    public List<Car> getList(){
-        return carsList.getCars();
+    public List<Car> getCarList(Integer val) {
+        if (val == null) {
+            return carsList.getCars();
+        } else {
+            return carsList.getCars().stream()
+                    .limit(Math.min(val, carsList.getCars().size()))
+                    .collect(Collectors.toList());
+        }
     }
 }
